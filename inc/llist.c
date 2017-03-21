@@ -30,24 +30,18 @@ LinkedList * LinkedList_push(LinkedList * head, int val) {
   return current;
 }
 
-LinkedList * LinkedList_pop(LinkedList * head) {
+LinkedList * LinkedList_pop(LinkedList ** head) {
   LinkedList * item;
+  LinkedList * current = * head;
 
-  if(head->next == NULL) {
-    item = LinkedList_init_node(head->val);
-    free(head);
-    head = NULL;
+  if(current->next == NULL) {
+    item = LinkedList_init_node(current->val);
+    free(*head);
+    *head = NULL;
     return item;
   }
 
-  if(head->next->next == NULL) {
-    item = LinkedList_init_node(head->next->val);
-    free(head->next);
-    head->next = NULL;
-    return item;
-  }
-
-  return LinkedList_pop(head->next);
+  return LinkedList_pop(&(*head)->next);
 }
 
 LinkedList * LinkedList_unshift(LinkedList ** head, int val) {

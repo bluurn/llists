@@ -18,7 +18,7 @@ void test_push_pop_one_elt() {
   printf("!!!TESTING PUSH AND POP WITH ONE ELT!!!\n");
   LinkedList * test_list = LinkedList_init_node(7);
   LinkedList_print(test_list);
-  LinkedList * node = LinkedList_pop(test_list);
+  LinkedList * node = LinkedList_pop(&test_list);
   printf("after:\n");
   LinkedList_print(test_list);
   printf("[%d]\n", node->val);
@@ -32,10 +32,10 @@ void test_push_pop() {
   }
   LinkedList_print(test_list);
   printf("after:\n");
-  LinkedList * node = LinkedList_pop(test_list);
-  LinkedList * node2 = LinkedList_pop(test_list);
-  LinkedList * node3 = LinkedList_pop(test_list);
-  LinkedList * node4 = LinkedList_pop(test_list);
+  LinkedList * node = LinkedList_pop(&test_list);
+  LinkedList * node2 = LinkedList_pop(&test_list);
+  LinkedList * node3 = LinkedList_pop(&test_list);
+  LinkedList * node4 = LinkedList_pop(&test_list);
   LinkedList_print(test_list);
   printf("[%d]\n", node->val);
   printf("[%d]\n", node2->val);
