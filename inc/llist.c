@@ -49,14 +49,14 @@ LinkedList * LinkedList_pop(LinkedList * head) {
   return LinkedList_pop(head->next);
 }
 
-LinkedList * LinkedList_shift(LinkedList ** head, int val) {
+LinkedList * LinkedList_unshift(LinkedList ** head, int val) {
   LinkedList * new_head = LinkedList_init_node(val);
   new_head->next = *head;
   *head = new_head;
   return *head;
 }
 
-LinkedList * LinkedList_unshift(LinkedList ** head) {
+LinkedList * LinkedList_shift(LinkedList ** head) {
   LinkedList * current = * head;
   LinkedList * next_node = current->next;
 
