@@ -4,12 +4,23 @@
 
 void test_shift_unshift();
 void test_push_pop();
+void test_push_pop_one_elt();
 
 int main() {
   test_push_pop();
   test_shift_unshift();
+  test_push_pop_one_elt();
 
   return 0;
+}
+
+void test_push_pop_one_elt() {
+  printf("!!!TESTING PUSH AND POP WITH ONE ELT!!!\n");
+  LinkedList * test_list = LinkedList_init_node(7);
+  LinkedList_print(test_list);
+  LinkedList * node = LinkedList_pop(test_list);
+  printf("[%d]\n", node->val);
+  LinkedList_print(test_list);
 }
 
 void test_push_pop() {

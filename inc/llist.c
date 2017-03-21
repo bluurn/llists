@@ -36,6 +36,7 @@ LinkedList * LinkedList_pop(LinkedList * head) {
   if(head->next == NULL) {
     item = LinkedList_init_node(head->val);
     free(head);
+    head = NULL;
     return item;
   }
 
